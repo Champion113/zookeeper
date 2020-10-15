@@ -81,11 +81,15 @@ function findById(id, animalsArray) {
     }
     res.json(results);
   });
+  //id route & error message
   app.get('/api/animals/:id', (req, res) => {
     const result = findById(req.params.id, animals);
+    if (result) {
       res.json(result);
+    } else {
+      res.send(404);
+    }
   });
-
 
 
 
