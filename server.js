@@ -1,4 +1,5 @@
 const express = require('express');
+const PORT = process.env.PORT || 3001;
 const app = express();
 
 //route created front-end can request data from
@@ -75,6 +76,10 @@ const { animals } = require('./data/animals');
     }
     res.json(results);
   });
+  app.get('/api/animals/:id', (req, res) => {
+    const result = findById(req.params.id, animals);
+      res.json(result);
+  });
 
 
 
@@ -96,7 +101,6 @@ const { animals } = require('./data/animals');
 
 
 
-
-app.listen(3001, () => {
-    console.log(`API server now on port 3001!`);
+  app.listen(PORT, () => {
+    console.log(`API server now on port ${PORT}!`);
   });
