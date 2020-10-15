@@ -23,6 +23,11 @@ const { animals } = require('./data/animals');
 //     }
 //     return filteredResults;
 //   }
+//take id & array of animals & return a single animal object
+function findById(id, animalsArray) {
+  const result = animalsArray.filter(animal => animal.id === id)[0];
+  return result;
+}
 
   function filterByQuery(query, animalsArray) {
     let personalityTraitsArray = [];
